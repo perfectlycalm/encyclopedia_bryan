@@ -59,11 +59,34 @@ function rotateArrow (arrow, dropdown, dropdownClosed) {
     if (dropdownClosed) {
         arrow.style.transform = 'rotate(180deg)'
         dropdown.style.maxHeight = "100%";
+        if (window.innerWidth <= 975) {
+            dropdown.style.marginTop = "5px"
+        }
         return false
     } else {
         arrow.style.transform = 'rotate(0deg)'
         dropdown.style.maxHeight = "0";
+        if (window.innerWidth <= 975) {
+            dropdown.style.marginTop = "0"
+        }
         return true;
     }
     
 }
+
+
+// Nav menu
+
+const navMenu = document.querySelector(".nav-menu");
+const navMobile = document.querySelector(".main-nav");
+let navMenuClosed = true;
+
+navMenu.addEventListener("click", function() {
+    if (navMenuClosed) {
+        navMobile.style.display = "flex";
+        navMenuClosed = false;
+    } else {
+        navMobile.style.display = "none";
+        navMenuClosed = true;
+    }
+})

@@ -4,19 +4,16 @@
     display: grid;
     max-width: 1000px;
     margin: auto;
-    padding-bottom: 10px;
+    padding: 0 15px 10px 15px;
+    height: 100%;
+    grid-template-columns:  100%;
+    align-items: start;
 }
 
-#home-content {
-    display: grid;
-    justify-items: start;
+#home-content,
+#contact-content {
     padding: 0 10px;
     margin-bottom: 50px;
-}
-
-#author-info {
-    border-bottom: 1px solid black;
-    padding-bottom: 50px;
 }
 
 
@@ -43,6 +40,8 @@ header {
     margin-bottom: 100px;
     display: grid;
     justify-items: center;
+    align-items: start;
+    grid-template-columns:  100%;
 }
 
 .site-branding {
@@ -55,6 +54,7 @@ header {
     font-size: 60px;
     font-family: 'Cormorant', serif;
     line-height: 1;
+    text-align: center;
 }
 
 .site-branding .logo {
@@ -63,7 +63,6 @@ header {
 
 .main-nav {
     display: grid;
-    justify-items: stretch;
     grid-template-columns: 90px 130px 140px 100px 230px 140px 120px;
     margin-top: 50px;
 }
@@ -83,7 +82,8 @@ header {
 }
 
 .nav-title:hover,
-.nav-dropdown a:hover {
+.nav-dropdown a:hover,
+.selected {
     font-weight: 500;
 }
 
@@ -102,12 +102,17 @@ header {
     overflow: hidden;
 }
 
+.nav-menu {
+    display: none;
+}
+
 
 /* footer */
 
 footer {
     display: grid;
     justify-items: center;
+    align-self: end;
 }
 
 footer .logo {
@@ -139,4 +144,85 @@ footer .disclaimer span {
     margin-bottom: 50px;
 }
 
+#home-content {
+    border-bottom: 1px solid black;
+    padding-bottom: 30px;
+}
 
+/* Contact Content */
+
+#contact-content {
+    margin-bottom: 0;
+    align-self: start;
+}
+
+#contact-content a {
+    color: black;
+}
+
+.content-section {
+    margin-bottom: 50px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 975px) {
+
+    header {
+        margin-bottom: 20px;
+    }
+    
+    .site-branding {
+        margin-bottom: 20px;
+    } 
+    
+    .nav-menu {
+        display: block;
+        font-size: 28px;
+     }
+
+     .main-nav {
+        flex-direction: column;
+        margin-top: 20px;
+        padding-left: 150px;
+        display: none;
+        
+        
+     }
+     .nav-item {
+        min-width: 250px;
+        margin-bottom: 10px;
+        
+       
+     }
+     .nav-dropdown {
+        position: relative;
+        margin: 0;
+     }
+     
+     .no-dropdown-first {
+        
+     }
+
+     .no-dropdown-last {
+       
+     }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    header {
+        margin-bottom: 10px;
+    }
+
+    .site-branding .logo {
+        width: 45px;
+        margin-top: 10px;
+    }
+
+    .site-branding h1 {
+        font-size: 45px;
+    }
+    
+}
